@@ -1,8 +1,10 @@
 #include <Arduino.h>
 #include "Ditel_DMOS.hpp"
 
-void setup(){
+DOS os;
 
+void setup(){
+    os.start();
 }
 
 void loop(){

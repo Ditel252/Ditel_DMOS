@@ -16,7 +16,7 @@ public:
 #define _SYS_BUTTON_NC 0x01
 #define _SYS_BUTTON_NO 0x02
 
-#define _SYS_OS_VERSION "0.0.1"
+#define _SYS_OS_VERSION "0.0.2"
 
     uint8_t _SYS_BUTTON_MODE;
     uint8_t _SYS_RIGHT_UP_PIN, _SYS_LEFT_DOWN_PIN, _SYS_OK_PIN;

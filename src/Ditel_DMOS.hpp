@@ -14,7 +14,7 @@ public:
         _KERNEL._setButtonPin(RightUpPin, LeftDownPin, OkPin, isNormallyClosed);
     }
 
-    void test()
+    void start()
     {
         systemForDOS._osBigin();
 
