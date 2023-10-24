@@ -7,6 +7,7 @@ class DOS
 {
 private:
     int _selectApp = 0;
+    bool _requestShutdown = false;
 
 public:
     void setMainButton(uint8_t LeftDownPin, uint8_t OkPin, uint8_t RightUpPin, bool isNormallyClosed = false)
@@ -19,7 +20,24 @@ public:
         systemForDOS._osBigin();
 
         while(1){
-            if(systemForDOS._homeScreen() == 5){
+            switch(systemForDOS._homeScreen()){
+                case 1:
+                    Ditel_DMOS_APPLICATION1();
+                    break;
+                case 2:
+                    Ditel_DMOS_APPLICATION2();
+                    break;
+                case 3:
+                    Ditel_DMOS_APPLICATION3();
+                    break;
+                case 4:
+                    Ditel_DMOS_APPLICATION4();
+                    break;
+                case 5:
+                    _requestShutdown = true;
+                    break;
+            }
+            if(_requestShutdown == true){
                 if(systemForApp1._popUp(4, 2, "Shutdown now ?") == 1)
                     break;
             }
