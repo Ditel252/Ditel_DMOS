@@ -16,7 +16,7 @@ public:
 #define _SYS_BUTTON_NC 0x01
 #define _SYS_BUTTON_NO 0x02
 
-#define _SYS_OS_VERSION "0.0.3d"
+#define _SYS_OS_VERSION "0.1.1"
 
     uint8_t _SYS_BUTTON_MODE;
     uint8_t _SYS_RIGHT_UP_PIN, _SYS_LEFT_DOWN_PIN, _SYS_OK_PIN;
@@ -92,17 +92,17 @@ public:
         EEPROM.get<_diagnoseOS>(0, _SYS_OS_CHECK);
     }
 
-    void _setButtonPin(const uint8_t _RIGHT_UP_PIN, const uint8_t _LEFT_DOWN_PIN, const uint8_t _OK_PIN, bool _isNC)
+    void _setButtonPin(const uint8_t _RIGHT_UP_PIN, const uint8_t _LEFT_DOWN_PIN, const uint8_t _OK_PIN, uint8_t _inputMode)
     {
         _SYS_RIGHT_UP_PIN = _RIGHT_UP_PIN;
         _SYS_LEFT_DOWN_PIN = _LEFT_DOWN_PIN;
         _SYS_OK_PIN = _OK_PIN;
 
-        _SYS_BUTTON_MODE = (_isNC ? _SYS_BUTTON_NC : _SYS_BUTTON_NO);
+        _SYS_BUTTON_MODE = ((_inputMode == INPUT_PULLUP) ?  _SYS_BUTTON_NC: _SYS_BUTTON_NO);
 
-        pinMode(_RIGHT_UP_PIN, INPUT);
-        pinMode(_LEFT_DOWN_PIN, INPUT);
-        pinMode(_OK_PIN, INPUT);
+        pinMode(_RIGHT_UP_PIN, _inputMode);
+        pinMode(_LEFT_DOWN_PIN, _inputMode);
+        pinMode(_OK_PIN, _inputMode);
     }
 
     void _print()

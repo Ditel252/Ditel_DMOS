@@ -10,9 +10,9 @@ private:
     bool _requestShutdown = false;
 
 public:
-    void setMainButton(uint8_t LeftDownPin, uint8_t OkPin, uint8_t RightUpPin, bool isNormallyClosed = false)
+    void setMainButton(uint8_t LeftDownPin, uint8_t OkPin, uint8_t RightUpPin, uint8_t inputMode = INPUT_PULLDOWN)
     {
-        _KERNEL._setButtonPin(RightUpPin, LeftDownPin, OkPin, isNormallyClosed);
+        _KERNEL._setButtonPin(RightUpPin, LeftDownPin, OkPin, inputMode);
     }
 
     void start()

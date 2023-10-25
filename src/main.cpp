@@ -9,7 +9,7 @@
 DOS os;
 
 void setup(){
-    os.setMainButton(PIN_CROSS_KEY_LEFT, PIN_CROSS_KEY_DOWN, PIN_CROSS_KEY_RIGHT, true);
+    os.setMainButton(PIN_CROSS_KEY_LEFT, PIN_CROSS_KEY_DOWN, PIN_CROSS_KEY_RIGHT, INPUT_PULLUP);
     os.start();
 }
 
