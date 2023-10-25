@@ -34,7 +34,7 @@ public:
 
         uint8_t _buttonBaseMode = HIGH;
 
-        if (_KERNEL._SYS_BUTTON_MODE == true)
+        if (_KERNEL._SYS_BUTTON_MODE == _SYS_BUTTON_NC)
             _buttonBaseMode = LOW;
 
         _SYS_Ditel_DMOS_DISPLAY.fillRect(8, 3, 112, 58, BLACK);
